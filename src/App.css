@@ -10,48 +10,18 @@
   align-items: center;
   height: 100vh;
   width: 100%;
-  background-color: rgb(5, 5, 70);
+  /* background-color: rgb(5, 5, 70); */
 }
 
-.loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.loading div {
-  position: absolute;
-}
-
-.glass {
-  height: 200px;
-  width: 200px;
-  background-color: rgba(255, 255, 255, 0.24);
-  border-radius: 100%;
-  z-index: 3;
-  backdrop-filter: blur(10px);
-}
-
-.box {
+.card {
   background-color: tomato;
-  height: 80px;
-  width: 80px;
-  border-radius: 5px;
-  transform: translateX(-250px);
-  animation: rotation 3s ease-in-out infinite;
+  width: 500px;
+  padding: 20px;
+  border-radius: 20px;
+  clip-path: circle(5% at 95% 20%);
+  transition: all ease-in-out 500ms;
 }
 
-@keyframes rotation {
-  0% {
-    transform: translateX(-250px) rotate(0);
-    z-index: 1;
-  }
-  50% {
-    transform: translateX(250px) rotate(180deg);
-  }
-  100% {
-    transform: translateX(-250px) rotate(360deg);
-    z-index: 6;
-  }
+.card:hover {
+  clip-path: circle(70.7% at 50% 50%);
 }
