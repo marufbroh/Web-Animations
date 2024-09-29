@@ -1,27 +1,42 @@
+
 .main {
-  border: 2px solid black;
-  padding: 20px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* gap: 10px; */
-  /* overflow: hidden; */
-  /* position: relative; */
-  perspective: 500px;
+  height: 95vh;
 }
 
-.box-1 {
-  background-color: red;
-  height: 150px;
-  width: 150px;
+.btn {
+  border: 2px solid tomato;
+  color: tomato;
+  padding: 10px 20px;
   transition-duration: 500ms;
   transition-timing-function: ease;
-  /* position: absolute; */
+  position: relative;
+  overflow: hidden;
 }
 
+.btn::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  background-color: tomato;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition-property: all;
+  transition-duration: 500ms;
+  transition-timing-function: ease;
+  transform: translate(100px);
+  z-index: -1;
+}
 
-.box-1:hover {
-  transform: rotateX(90deg)
+.btn:hover {
+  transform: scale(1);
+  color: white;
+}
+
+.btn:hover:after {
+  transform: translate(0px);
 }
 
