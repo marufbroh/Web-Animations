@@ -13,15 +13,16 @@
   /* background-color: rgb(5, 5, 70); */
 }
 
-.card {
-  background-color: tomato;
-  width: 500px;
-  padding: 20px;
-  border-radius: 20px;
-  clip-path: circle(5% at 95% 20%);
-  transition: all ease-in-out 500ms;
+.container {
+  font-size: 5rem;
+  font-weight: 700;
 }
 
-.card:hover {
-  clip-path: circle(70.7% at 50% 50%);
+.alphabet {
+transition: all ease-in-out;
+transition-duration: 30ms;
+}
+
+.container:hover {
+  color: purple;
 }
