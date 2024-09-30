@@ -2,12 +2,24 @@ import { motion } from "framer-motion";
 
 const parent = {
   hidden: { opacity: 0, scale: 0.9 },
-  visible: { opacity: 1, scale: 1 },
-};
-
-const child = {
-  hidden: { opacity: 0, scale: 0.1 },
-  visible: { opacity: 1, scale: 1 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      ease: "easeInOut",
+      duration: 1.5,
+    },
+  },
+  hover: {
+    scale: 1.1,
+    transition: {
+      duration: 0.5,
+    },
+  },
+  tap: {
+    scale: 1,
+    rotate: 45,
+  },
 };
 
 const Lesson1 = () => {
@@ -17,32 +29,11 @@ const Lesson1 = () => {
       variants={parent}
       initial="hidden"
       animate="visible"
-      transition={{
-        ease: "easeInOut",
-        duration: 1.5,
-        // repeat: Infinity,
-        repeatType: "reverse",
-        delayChildren: 1,
-        staggerChildren: 0.5,
-      }}
-    >
-      <motion.div
-        className="size-20 bg-cyan-400 rounded-sm"
-        variants={child}
-      ></motion.div>
-      <motion.div
-        className="size-20 bg-cyan-400 rounded-sm"
-        variants={child}
-      ></motion.div>
-      <motion.div
-        className="size-20 bg-cyan-400 rounded-sm"
-        variants={child}
-      ></motion.div>
-      <motion.div
-        className="size-20 bg-cyan-400 rounded-sm"
-        variants={child}
-      ></motion.div>
-    </motion.div>
+      whileHover="hover"
+      whileTap="tap"
+      onHoverStart={() => console.log("Hovered")}
+      onHoverEnd={() => console.log("Hover Ended")}
+    ></motion.div>
   );
 };
 
