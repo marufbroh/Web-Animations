@@ -2,13 +2,19 @@ import { motion } from "framer-motion";
 import { useRef } from "react";
 
 const parent = {
-  hidden: { opacity: 0, scale: 0.9 },
+  hidden: { x: 0, y: 0, opacity: 0 },
   visible: {
-    opacity: 0.6,
-    scale: 1,
+    x: [0, 300, -300, 0],
+    y: [0, 300, -300, 0],
+    rotate: [0, 300, -300, 0],
+    opacity: 1,
     transition: {
-      ease: "easeInOut",
-      duration: 0.5,
+      ease: "linear",
+      repeat: Infinity,
+      duration: 5,
+      opacity: {
+        duration: 0.5,
+      },
     },
   },
   hover: {
@@ -29,10 +35,10 @@ const Lesson1 = () => {
   return (
     <div
       ref={parentRef}
-      className="border border-red-500 size-[500px] flex justify-center items-center"
+      className="border border-red-500 size-[400px] flex justify-center items-center"
     >
       <motion.div
-        className="size-64 bg-indigo-500 rounded-lg flex flex-wrap gap-5 p-5 justify-center items-center"
+        className="size-32 bg-indigo-500 rounded-lg flex flex-wrap gap-5 p-5 justify-center items-center"
         variants={parent}
         initial="hidden"
         animate="visible"
@@ -40,7 +46,7 @@ const Lesson1 = () => {
         drag
         dragElastic={0.7}
         dragConstraints={parentRef}
-        whileDrag= "tap"
+        whileDrag="tap"
       ></motion.div>
     </div>
   );
